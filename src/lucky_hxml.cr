@@ -1,4 +1,5 @@
 require "lucky"
+require "habitat"
 require "xml"
 
 require "./lucky_hxml/version"

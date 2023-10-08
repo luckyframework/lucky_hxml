@@ -15,3 +15,6 @@ dependencies:
   lucky:
     github: luckyframework/lucky
     version: ~> 1.0
+  habitat:
+    github: luckyframework/habitat
+    version: ~> 0.4.7
