@@ -4,6 +4,14 @@ version: 0.1.0
 authors:
   - Michael Wagner <mdwranger@gmail.com>
 
-crystal: 1.9.2
+crystal: ~> 1.6
 
 license: MIT
+
+crystalline:
+  main: src/lucky_hxml.cr
+
+dependencies:
+  lucky:
+    github: luckyframework/lucky
+    version: ~> 1.0
