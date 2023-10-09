@@ -60,3 +60,64 @@ module ContextHelper
     {} of String => String
   end
 end
+
+abstract class TestAction < Lucky::Action
+  include Lucky::EnforceUnderscoredRoute
+  accepted_formats [:xml], default: :xml
+end
+
+class TestComponent < LuckyHXML::Component
+  def render
+    text "Hello World! (from Component)"
+  end
+end
+
+class TestScreen < LuckyHXML::Screen
+  def render
+    doc do
+      screen do
+        styles do
+          style id: "body", flex: "1", backgroundColor: "white"
+        end
+        body style: "body" do
+          view do
+            text "Hello World! (from Screen)"
+          end
+        end
+      end
+    end
+  end
+end
+
+class Rendering::IndexScreen < LuckyHXML::Screen
+  def render
+    doc do
+      screen do
+        styles do
+          style id: "body", flex: "1", backgroundColor: "white"
+        end
+        body style: "body" do
+          view do
+            text "Hello World! (from Rendering::IndexScreen)"
+          end
+        end
+      end
+    end
+  end
+end
+
+class Rendering::Index < TestAction
+  include LuckyHXML::Renderable
+
+  get "/rendering" do
+    hxml
+  end
+end
+
+class Test::Index < TestAction
+  include LuckyHXML::Renderable
+
+  get "/test" do
+    hxml_component TestComponent
+  end
+end

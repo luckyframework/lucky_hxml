@@ -1,8 +1,8 @@
 module LuckyHXML::Renderable
   macro hxml(screen_class = nil, _with_status_code = 200, **assigns)
-    {% screen_class = screen_class || "#{@type.name}Screen".id %}
+    {% screen_class = screen_class || parse_type("#{@type.name}Screen") %}
     {% if !screen_class.resolve.ancestors.includes?(LuckyHXML::Screen) %}
-      {% screen_class.raise "Couldn't render #{screen_class} in #{@type.name} because it is not an HXMLScreen" %}
+      {% screen_class.raise "Couldn't render #{screen_class} in #{@type.name} because it is not a LuckyHXML::Screen" %}
     {% end %}
 
     instance = {{ screen_class }}.new(
