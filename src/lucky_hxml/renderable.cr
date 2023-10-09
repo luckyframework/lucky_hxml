@@ -29,7 +29,7 @@ module LuckyHXML::Renderable
 
   def hxml_component(component : LuckyHXML::Component.class, status : Int32? = nil, **named_args)
     kwargs = named_args.merge(context: context)
-    xml(body: component.new(**kwargs).perform_render,status: status)
+    xml(body: component.new(**kwargs).perform_render, status: status, content_type: "application/xml")
   end
 
   def hxml_component(component : LuckyHXML::Component.class, status : HTTP::Status, **named_args)
