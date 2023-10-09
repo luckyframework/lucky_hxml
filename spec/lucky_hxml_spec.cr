@@ -21,6 +21,7 @@ describe LuckyHXML::Renderable do
     response = Rendering::Index.new(build_context, params).call
 
     response.body.to_s.should contain("Hello World! (from Rendering::IndexScreen)")
+    response.debug_message.to_s.should contain("Rendering::IndexScreen")
     response.status.should eq(200)
   end
 
