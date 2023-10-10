@@ -4,6 +4,8 @@ require "xml"
 
 require "./lucky_hxml/version"
 require "./lucky_hxml/tags"
+require "./lucky_hxml/alert"
+require "./lucky_hxml/share"
 require "./lucky_hxml/form_helpers"
 require "./lucky_hxml/request_helpers"
 require "./lucky_hxml/mount_component"

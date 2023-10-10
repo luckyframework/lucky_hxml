@@ -9,7 +9,11 @@ module LuckyHXML::Tags
   # doc do
   #   hyperview_namespace
   # end
-  # # => <doc xmlns="https://hyperview.org/hyperview"></doc>
+  #
+  # # Renders:
+  # <<-XML
+  # <doc xmlns="https://hyperview.org/hyperview"></doc>
+  # XML
   # ```
   #
   # Example:
@@ -17,7 +21,11 @@ module LuckyHXML::Tags
   # items do
   #   hyperview_namespace
   # end
-  # # => <items xmlns="https://hyperview.org/hyperview"></items>
+  #
+  # # Renders:
+  # <<-XML
+  # <items xmlns="https://hyperview.org/hyperview"></items>
+  # XML
   # ```
   def hyperview_namespace : Nil
     attribute "xmlns", "https://hyperview.org/hyperview"
@@ -234,4 +242,7 @@ module LuckyHXML::Tags
       yield
     end
   end
+
+  # TODO: add [Alert](https://hyperview.org/docs/reference_behavior_alert)
+  # TODO: add [Share](https://hyperview.org/docs/reference_behavior_share)
 end

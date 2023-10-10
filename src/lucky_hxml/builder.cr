@@ -1,6 +1,8 @@
 module LuckyHXML::Builder
   include Lucky::Assignable
   include LuckyHXML::Tags
+  include LuckyHXML::Alert
+  include LuckyHXML::Share
 
   property! xml : XML::Builder
 
