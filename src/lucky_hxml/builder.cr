@@ -11,6 +11,7 @@ module LuckyHXML::Builder
     setting quote_char : Char? = nil
   end
 
+  # Renders XML document to IO
   def perform_render(io : IO) : Nil
     XML.build_fragment(io, indent: LuckyHXML::Builder.settings.indent, quote_char: LuckyHXML::Builder.settings.quote_char) do |xml|
       self.xml = xml
@@ -18,6 +19,7 @@ module LuckyHXML::Builder
     end
   end
 
+  # Renders XML document to String
   def perform_render : String
     String.build do |io|
       perform_render(io)

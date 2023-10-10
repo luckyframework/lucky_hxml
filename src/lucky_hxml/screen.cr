@@ -7,5 +7,6 @@ abstract class LuckyHXML::Screen
 
   needs context : HTTP::Server::Context
 
+  # Render HXML
   abstract def render
 end

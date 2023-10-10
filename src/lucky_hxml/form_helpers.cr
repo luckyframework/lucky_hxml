@@ -1,5 +1,5 @@
 module LuckyHXML::FormHelpers
-  # Defines a form with csrf field and method override field
+  # Defines a form with CSRF field and method override field
   #
   # Yields the route path and route HTTP method
   def form_for(route : Lucky::RouteHelper, **opts, &) : Nil
@@ -17,6 +17,7 @@ module LuckyHXML::FormHelpers
     end
   end
 
+  # Returns HTTP method for forms (either GET or POST)
   def form_method(route) : String
     if route.method == :get
       "get"
@@ -25,9 +26,14 @@ module LuckyHXML::FormHelpers
     end
   end
 
+  # Defines a hidden text field to override HTTP method used
   def method_override_text_field(route) : Nil
     unless [:post, :get].includes?(route.method)
-      text_field hide: "true", name: "_method", value: route.method.to_s
+      text_field(
+        hide: "true",
+        name: "_method",
+        value: route.method.to_s
+      )
     end
   end
 end

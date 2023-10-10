@@ -1,4 +1,5 @@
 module LuckyHXML::Renderable
+  # Renders an HXML Screen response
   macro hxml(screen_class = nil, _with_status_code = 200, _with_content_type = "application/xml", **assigns)
     {% screen_class = screen_class || parse_type("#{@type.name}Screen") %}
     {% ancestors = screen_class.resolve.ancestors %}
@@ -27,11 +28,13 @@ module LuckyHXML::Renderable
     )
   end
 
+  # Renders an HXML Component response
   def hxml_component(component : LuckyHXML::Component.class, status : Int32? = nil, **named_args)
     kwargs = named_args.merge(context: context)
     xml(body: component.new(**kwargs).perform_render, status: status, content_type: "application/xml")
   end
 
+  # :ditto:
   def hxml_component(component : LuckyHXML::Component.class, status : HTTP::Status, **named_args)
     kwargs = named_args.merge(context: context)
     hxml_component(component, status.value, **kwargs)

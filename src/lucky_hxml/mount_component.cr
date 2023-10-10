@@ -1,4 +1,5 @@
 module LuckyHXML::MountComponent
+  # Mounts component into HXML tree
   def mount(component : LuckyHXML::Component.class, *args, **named_args, &) : Nil
     kwargs = named_args.merge(context: context)
     component.new(*args, **kwargs).tap do |instance|
@@ -9,6 +10,7 @@ module LuckyHXML::MountComponent
     end
   end
 
+  # :ditto:
   def mount(component : LuckyHXML::Component.class, *args, **named_args) : Nil
     kwargs = named_args.merge(context: context)
     component.new(*args, **kwargs).tap do |instance|
