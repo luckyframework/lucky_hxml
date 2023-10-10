@@ -16,12 +16,11 @@
 #   trigger="longPress"
 #   action="alert"
 #   alert:title="This is the title"
-#   alert:message="This is the message">
-#
+#   alert:message="This is the message"
+# >
 #   <alert:option alert:label="Screen 1">
 #     <behavior href="/screen1" action="push" />
 #   </alert:option>
-#
 #   <alert:option alert:label="Screen 2">
 #     <behavior href="/screen2" action="new" />
 #   </alert:option>

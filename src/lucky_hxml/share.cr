@@ -1,9 +1,8 @@
 # Example
 # ```
 # view style: "Button" do
-#   share_behavior trigger: "press", url: "https://www.instawork.com", message: "Check out this website!" do
-#     text "Share link", style: "Button__Label"
-#   end
+#   share_behavior trigger: "press", url: "https://www.instawork.com", message: "Check out this website!"
+#   text "Share link", style: "Button__Label"
 # end
 #
 # # Renders:

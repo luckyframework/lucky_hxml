@@ -15,7 +15,7 @@ describe LuckyHXML::Component do
 
   it "renders a share component" do
     render = TestShareComponent.new(context: build_context).perform_render
-    render.chomp.should eq(%(<view style="Button"><behavior trigger="press" xmlns:share="https://instawork.com/hyperview-share" action="share" share:message="Check out this website!" share:url="https://www.instawork.com"><text style="Button__Label">Share link</text></behavior></view>))
+    render.chomp.should eq(%(<view style="Button"><behavior trigger="press" xmlns:share="https://instawork.com/hyperview-share" action="share" share:message="Check out this website!" share:url="https://www.instawork.com"/><text style="Button__Label">Share link</text></view>))
   end
 end
 
