@@ -121,3 +121,26 @@ class Test::Index < TestAction
     hxml_component TestComponent
   end
 end
+
+class TestAlertComponent < LuckyHXML::Component
+  def render
+    alert_behavior trigger: "longPress", title: "This is a title", message: "This is a message" do
+      alert_option label: "Screen 1" do
+        behavior href: "/screen1", action: "push"
+      end
+      alert_option label: "Screen 2" do
+        behavior href: "/screen2", action: "new"
+      end
+    end
+  end
+end
+
+class TestShareComponent < LuckyHXML::Component
+  def render
+    view style: "Button" do
+      share_behavior trigger: "press", url: "https://www.instawork.com", message: "Check out this website!" do
+        text "Share link", style: "Button__Label"
+      end
+    end
+  end
+end
