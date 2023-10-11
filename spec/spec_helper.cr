@@ -5,6 +5,11 @@ require "../src/lucky_hxml"
 module ContextHelper
   extend self
 
+  def render(component, **opts)
+    kwargs = opts.merge(context: build_context)
+    component.new(**kwargs).perform_render.chomp
+  end
+
   private def build_request(
     method = "GET",
     body = "",
@@ -140,6 +145,62 @@ class TestShareComponent < LuckyHXML::Component
     view style: "Button" do
       share_behavior trigger: "press", url: "https://www.instawork.com", message: "Check out this website!"
       text "Share link", style: "Button__Label"
+    end
+  end
+end
+
+class PhoneBehaviorComponent < LuckyHXML::Component
+  needs trigger : String = "press"
+  needs phone_number : String
+
+  def render
+    behavior(
+      "xmlns:comms": "https://hypermedia.systems/hyperview/communications",
+      trigger: trigger,
+      action: "open-phone",
+      "comms:phone-number": phone_number
+    )
+  end
+end
+
+class SwipeRowComponent < LuckyHXML::Component
+  def render(&)
+    element "swipe:row" do
+      swipe_namespace
+      yield
+    end
+  end
+
+  private def swipe_namespace : Nil
+    attribute "xmlns:swipe", "https://hypermedia.systems/hyperview/swipeable"
+  end
+end
+
+class SwipeMainComponent < LuckyHXML::Component
+  def render(&)
+    element "swipe:main" do
+      yield
+    end
+  end
+end
+
+class SwipeButtonComponent < LuckyHXML::Component
+  def render(&)
+    element "swipe:button" do
+      yield
+    end
+  end
+end
+
+class TestPhoneSwipeComponent < LuckyHXML::Component
+  def render
+    mount SwipeRowComponent do
+      mount SwipeMainComponent do
+        text "Phone Number"
+      end
+      mount SwipeButtonComponent do
+        mount PhoneBehaviorComponent, phone_number: "123-456-7890"
+      end
     end
   end
 end
