@@ -1,12 +1,13 @@
-# Example
-# ```
+# Example:
+# ```crystal
 # view style: "Button" do
 #   share_behavior trigger: "press", url: "https://www.instawork.com", message: "Check out this website!"
 #   text "Share link", style: "Button__Label"
 # end
+# ```
 #
-# # Renders:
-# <<-XML
+# Output:
+# ```xml
 # <view style="Button">
 #   <behavior
 #     xmlns:share="https://instawork.com/hyperview-share"
@@ -17,7 +18,6 @@
 #   />
 #   <text style="Button__Label">Share link</text>
 # </view>
-# XML
 # ```
 module LuckyHXML::Share
   # Defines Hyperview Share XML Namespace attribute

@@ -1,5 +1,5 @@
-# Example
-# ```
+# Example:
+# ```crystal
 # alert_behavior trigger: "longPress", title: "This is a title", message: "This is a message" do
 #   alert_option label: "Screen 1" do
 #     behavior href: "/screen1", action: "push"
@@ -8,9 +8,10 @@
 #     behavior href: "/screen2", action: "new"
 #   end
 # end
+# ```
 #
-# # Renders:
-# <<-XML
+# Output:
+# ```xml
 # <behavior
 #   xmlns:alert="https://hyperview.org/hyperview-alert"
 #   trigger="longPress"
@@ -25,7 +26,6 @@
 #     <behavior href="/screen2" action="new" />
 #   </alert:option>
 # </behavior>
-# XML
 # ```
 module LuckyHXML::Alert
   # The style to be applied to the option's button

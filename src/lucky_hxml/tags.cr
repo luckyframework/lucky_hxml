@@ -5,27 +5,15 @@ module LuckyHXML::Tags
   # NOTE: Only needed on _root_ elements
   #
   # Example:
-  # ```
-  # doc do
-  #   hyperview_namespace
-  # end
-  #
-  # # Renders:
-  # <<-XML
-  # <doc xmlns="https://hyperview.org/hyperview"></doc>
-  # XML
-  # ```
-  #
-  # Example:
-  # ```
+  # ```crystal
   # items do
   #   hyperview_namespace
   # end
+  # ```
   #
-  # # Renders:
-  # <<-XML
+  # Output:
+  # ```xml
   # <items xmlns="https://hyperview.org/hyperview"></items>
-  # XML
   # ```
   def hyperview_namespace : Nil
     attribute "xmlns", "https://hyperview.org/hyperview"
