@@ -97,6 +97,10 @@ class PhoneBehaviorComponent < BaseHXMLComponent
 end
 ```
 
+#### Create Custom Elements
+
+You can create custom elements and attributes with `element` & `attribute` methods respectively.
+
 ```crystal
 class SwipeRowComponent < BaseHXMLComponent
   def render(&)
@@ -117,6 +121,8 @@ end
 ```crystal
 mount PhoneBehaviorComponent, phone_number: "123-456-7890"
 ```
+
+With a block:
 
 ```crystal
 mount SwipeRowComponent do
