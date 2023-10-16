@@ -1,7 +1,6 @@
 abstract class LuckyHXML::Component
   include LuckyHXML::Builder
   include LuckyHXML::FormHelpers
-  include LuckyHXML::RequestHelpers
   include LuckyHXML::MountComponent
   include LuckyHXML::ForgeryProtectionHelpers
 

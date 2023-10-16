@@ -242,7 +242,4 @@ module LuckyHXML::Tags
       yield
     end
   end
-
-  # TODO: add [Alert](https://hyperview.org/docs/reference_behavior_alert)
-  # TODO: add [Share](https://hyperview.org/docs/reference_behavior_share)
 end
